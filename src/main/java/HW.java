@@ -5,5 +5,6 @@ public class HW {
 
     private static void task() {
         System.out.println("Hello World");
+        System.out.println();
     }
 }
