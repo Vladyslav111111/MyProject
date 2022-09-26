@@ -1,25 +1,27 @@
+package test;
+
 import helpers.BaseSeleniumPage;
 import helpers.ConfProperties;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.*;
 import pages.MainPage;
-
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 
 public class MainPageTest {
     public static WebDriver driver;
 
-    @BeforeTest
+    @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout((Duration.ofSeconds(20)));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(ConfProperties.getProperty("url"));
         BaseSeleniumPage.setDriver(driver);
     }
@@ -30,12 +32,12 @@ public class MainPageTest {
                 .createOrderDress()
                 .authentication()
                 .procced();
-
         String title = mainPage.getText();
         Assert.assertEquals("AUTHENTICATION", title);
+
     }
 
-    @AfterTest
+    @After
     public void tearDown() {
         driver.quit();
     }

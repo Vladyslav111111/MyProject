@@ -10,7 +10,7 @@ import java.util.Properties;
         protected static Properties PROPERTIES;
         static {
             try {
-                fileInputStream = new FileInputStream("/Users/vladislavgarkavyj/IdeaProjects/MyProject/src/main/resources/conf.properties.properties");
+                fileInputStream = new FileInputStream("/Users/vladislavgarkavyj/IdeaProjects/MyProject/src/main/resources/conf.properties");
                 PROPERTIES = new Properties();
                 PROPERTIES.load(fileInputStream);
             } catch (IOException e) {

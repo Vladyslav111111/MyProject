@@ -1,7 +1,8 @@
 import helpers.BaseSeleniumPage;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Test;
+
 import pages.VerificationPage;
 
 public class VerificationPageTest extends BaseSeleniumPage {
@@ -14,9 +15,10 @@ public class VerificationPageTest extends BaseSeleniumPage {
         verificationPage.confirmation();
 
         String title = verificationPage.titleField();
-        Assert.assertEquals("PLEASE CHOOSE YOUR PAYMENT METHOD"
-                , title);}
-    @AfterTest
+        Assert.assertEquals("PLEASE CHOOSE YOUR PAYMENT METHOD", title);
+    }
+
+    @After
     public void tearDown() {
         driver.quit();
     }

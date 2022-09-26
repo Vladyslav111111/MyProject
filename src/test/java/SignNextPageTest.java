@@ -1,14 +1,12 @@
-import helpers.BaseSeleniumPage;
-import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.Test;
+import org.junit.Test;
+import org.junit.Assert;
 
 import pages.SignNextPage;
 
 
-public class SignNextPageTest  {
+public class SignNextPageTest {
 
-    @Test
+   // @Test
     public void signNextTest() {
         SignPageTest signPageTest = new SignPageTest();
         signPageTest.signTest();
@@ -19,5 +17,6 @@ public class SignNextPageTest  {
                 , title);
         signNextPage.signNextPage();
     }
+
 }
 
